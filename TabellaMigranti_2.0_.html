@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella CSV 2.0</title>
+    <style>
+        body {
+            background-color: #d3c0b4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 5px #888;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px #aaa;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #28e9b9;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            font-size: 1em;
+        }
+
+        table {
+            margin: 20px auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #444;
+        }
+
+        th, td {
+            border: 2px solid #28e9b9;
+            padding: 10px;
+            text-align: left;
+            font-size: 1em;
+            color: white;
+        }
+
+        th {
+            background-color: #28e9b9;
+            color: black;
+        }
+
+        canvas {
+            display: block;
+            margin: 30px auto;
+            border: 2px solid #c0f012;
+            background-color: #ffffff;
+            box-shadow: 5px 5px 15px #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabella CSV (Migranti) 2.0</h1>
+    <p>Seleziona un file CSV da caricare:</p>
+    <input type="file" onchange="leggiFile(this)" accept=".csv">
+    <table id="tabellaCSV"></table>
+    <p>Grafico sbarchi dei migranti (1997-2020):</p>
+    <p><strong>Asse delle ordinate:</strong> Anni </p>
+    <p><strong>Asse delle asciesse:</strong> Numero</p>
+    <canvas id="Canvas" width="800" height="800"></canvas>
+    <script>
+        function leggiFile(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function () {
+                var dati = reader.result;
+                var righe = dati.split("\n");
+                var tabella = document.getElementById("tabellaCSV");
+                tabella.innerHTML = "";
+
+                for (var i = 0; i < righe.length; i++) {
+                    var riga = righe[i].split(",");
+                    var tr = document.createElement("tr");
+                    for (var j = 0; j < riga.length; j++) {
+                        var cella;
+                        if (i === 0) {
+                            cella = document.createElement("th");
+                        } else {
+                            cella = document.createElement("td");
+                        }
+                        cella.textContent = riga[j].trim();
+                        tr.appendChild(cella);
+                    }
+                    tabella.appendChild(tr);
+                }
+            };
+            reader.onerror = function () {
+                console.error("Errore lettura del file:", reader.error);
+            };
+        }
+
+        var canvas = document.getElementById("Canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(40, 10);
+        ctx.lineTo(40, 790);
+        ctx.moveTo(15, 770);
+        ctx.lineTo(795, 770);
+        ctx.stroke();
+
+        ctx.moveTo(40, 770);
+        ctx.quadraticCurveTo(70, 470, 100, 230);
+        ctx.moveTo(100, 230);
+        ctx.quadraticCurveTo(130, 170, 160, 320);
+        ctx.moveTo(160, 320);
+        ctx.quadraticCurveTo(190, 530, 220, 380);
+        ctx.moveTo(220, 380);
+        ctx.quadraticCurveTo(250, 590, 280, 620);
+        ctx.moveTo(280, 620);
+        ctx.quadraticCurveTo(310, 440, 340, 500);
+        ctx.moveTo(340, 500);
+        ctx.quadraticCurveTo(370, 560, 400, 260);
+        ctx.moveTo(400, 260);
+        ctx.quadraticCurveTo(430, 710, 460, 740);
+        ctx.moveTo(460, 740);
+        ctx.quadraticCurveTo(490, 140, 520, 650);
+        ctx.moveTo(520, 650);
+        ctx.quadraticCurveTo(550, 200, 580, 50);
+        ctx.moveTo(580, 50);
+        ctx.quadraticCurveTo(610, 80, 640, 20);
+        ctx.moveTo(640, 20);
+        ctx.quadraticCurveTo(670, 110, 700, 350);
+        ctx.moveTo(700, 350);
+        ctx.quadraticCurveTo(730, 680, 760, 290);
+        ctx.moveTo(760, 290);
+        ctx.quadraticCurveTo(795, 770, 795, 770);
+        ctx.stroke();
+    </script>
+</body>
+</html>
