@@ -78,7 +78,7 @@
     <canvas id="Canvas" width="800" height="800"></canvas>
     <script>
         const anni = [];
-        const numeri = [];  // Array per i valori numerici da CSV
+        const numeri = [];
 
         function leggiFile(input) {
             var file = input.files[0];
@@ -102,7 +102,7 @@
             for (var i = 1; i < righe.length; i++) {
                 var riga = righe[i].split(",");
                 anni.push(riga[0].replace(/"/g,""));
-                numeri.push(parseInt(riga[1].replace(/"/g,"").trim()));  // Aggiungi il secondo valore (numero migranti)
+                numeri.push(parseInt(riga[1].replace(/"/g,"").trim())); 
                 var tr = document.createElement("tr");
 
                 for (var j = 0; j < riga.length; j++) {
@@ -125,12 +125,11 @@
             const stepX = 75;
             const minY = 4406;
             const maxY = 181436;
-            const stepY = 50;  // Distanza tra le linee orizzontali sull'asse Y
+            const stepY = 50; 
             const canvas = document.getElementById("Canvas");
             const ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);  // Pulisci il canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
 
-            // Disegnare l'asse X
             ctx.beginPath();
             ctx.moveTo(40, 10);
             ctx.lineTo(40, 790);
@@ -141,18 +140,17 @@
                 ctx.lineTo((i * 30) + stepX, 780);
             }
 
-            // Disegnare l'asse Y
-            for (i = 0; i <= 10; i++) {  // Modifica 10 per avere il numero di divisioni desiderato
-                const y = 770 - (i * stepY);  // Calcola la posizione Y
+            for (i = 0; i <= 10; i++) {
+                const y = 770 - (i * stepY); 
                 ctx.moveTo(40, y);
-                ctx.lineTo(30, y);  // Linea verticale per ogni valore sull'asse Y
+                ctx.lineTo(30, y);  
             }
 
             
             ctx.font = "14px Arial";
             for (i = 0; i <= 10; i++) {
                 const yLabel = Math.floor(minY + (i * (maxY - minY) / 10));
-                ctx.fillText(yLabel, 5, 770 - (i * stepY));  // Etichette sull'asse Y
+                ctx.fillText(yLabel, 5, 770 - (i * stepY));  
             }
 
             
