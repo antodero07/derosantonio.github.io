@@ -148,18 +148,18 @@
                 ctx.lineTo(30, y);  // Linea verticale per ogni valore sull'asse Y
             }
 
-            // Etichette dell'asse Y (valori tra minY e maxY)
+            
             ctx.font = "14px Arial";
             for (i = 0; i <= 10; i++) {
                 const yLabel = Math.floor(minY + (i * (maxY - minY) / 10));
                 ctx.fillText(yLabel, 5, 770 - (i * stepY));  // Etichette sull'asse Y
             }
 
-            // Mappatura dei valori sui punti del grafico
+            
             ctx.beginPath();
             for (i = 0; i < numeri.length; i++) {
                 const x = (i * 30) + stepX;
-                const y = 770 - ((numeri[i] - minY) / (maxY - minY)) * 760;  // Mappatura dei valori Y sui pixel
+                const y = 770 - ((numeri[i] - minY) / (maxY - minY)) * 760;  
                 if (i === 0) {
                     ctx.moveTo(x, y);
                 } else {
