@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> - Stella con 5 punte - Antonio De Rosa - </title>
+</head>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(230, 201, 40);
+            font-size: 40px;
+            padding-top: 8px;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <center><h1> - Stella con 5 punte - Antonio De Rosa -</h1></center>
+    <canvas id="Canvas" width="300" height="300" ></canvas>
+    </body>
+<script>
+    const canvas = document.getElementById("Canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "lightblue";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(150, 30);
+    ctx.lineTo(180, 130);
+    ctx.lineTo(270, 130);
+    ctx.lineTo(200, 180);
+    ctx.lineTo(230, 270);
+    ctx.lineTo(150, 220);
+    ctx.lineTo(70, 270);
+    ctx.lineTo(100, 180);
+    ctx.lineTo(30, 130);
+    ctx.lineTo(120, 130);
+    ctx.lineTo(150, 30);
+    ctx.closePath();       
+    ctx.fill();
+    ctx.stroke();
+</script>
+</html>
