@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .back-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #e55347;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../home2.html" class="back-button">Torna Indietro</a>
+
+    <div class="container">
+        <h1>Registrazione Account</h1>
+        <form id="accountForm">
+            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+            <input type="text" id="cognome" name="cognome" placeholder="Cognome" required>
+            <input type="number" id="età" name="età" placeholder="Età" required>
+            <input type="email" id="indirizzo" name="indirizzo" placeholder="Email" required>
+            <input type="text" id="città" name="città" placeholder="Città" required>
+            
+            <div class="button-container">
+                <button type="button" onclick="registrati()">Registra</button>
+                <button type="button" onclick="aggiungiAccount()" title="Aggiungi altro account">+</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const datiAccount = [];
+
+        function aggiungiAccount() {
+            const nome = document.getElementById("nome").value;
+            const cognome = document.getElementById("cognome").value;
+            const eta = document.getElementById("età").value;
+            const indirizzo = document.getElementById("indirizzo").value;
+            const citta = document.getElementById("città").value;
+
+            const account = { nome, cognome, eta, indirizzo, citta };
+            datiAccount.push(account);
+            document.getElementById("accountForm").reset();
+        }
+
+        function registrati() {
+            const nome = document.getElementById("nome").value;
+            const cognome = document.getElementById("cognome").value;
+            const eta = document.getElementById("età").value;
+            const indirizzo = document.getElementById("indirizzo").value;
+            const citta = document.getElementById("città").value;
+
+            const account = { nome, cognome, eta, indirizzo, citta };
+            datiAccount.push(account);
+            localStorage.setItem("datiAccount", JSON.stringify(datiAccount));
+            window.location.href = "datiPresi.html";
+        }
+    </script>
+
+</body>
+</html>

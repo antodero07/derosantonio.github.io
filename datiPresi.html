@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella Account Registrati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        .back-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #e55347;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-button">Torna alla Registrazione</a>
+
+    <div class="container">
+        <h1>Account Registrati</h1>
+        <table id="accountTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Età</th>
+                    <th>Email</th>
+                    <th>Città</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function caricaDati() {
+            const datiAccount = JSON.parse(localStorage.getItem("datiAccount")) || [];
+            const tabella = document.getElementById("accountTable").getElementsByTagName('tbody')[0];
+
+            if (datiAccount.length === 0) {
+                const row = tabella.insertRow();
+                const cell = row.insertCell(0);
+                cell.colSpan = 5;
+                cell.textContent = "Nessun account registrato";
+                cell.style.textAlign = "center";
+            } else {
+                datiAccount.forEach(account => {
+                    const row = tabella.insertRow();
+                    row.insertCell(0).textContent = account.Nome;
+                    row.insertCell(1).textContent = account.Cognome;
+                    row.insertCell(2).textContent = account.Eta;
+                    row.insertCell(3).textContent = account.Indirizzo;
+                    row.insertCell(4).textContent = account.Citta;
+                });
+            }
+        }
+
+        window.onload = caricaDati;
+    </script>
+
+</body>
+</html>
