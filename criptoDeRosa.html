@@ -23,10 +23,6 @@
 
         <input type="text" id="inputChiave" placeholder="Inserisci la tua chiave">
 
-        <a href="testi/prova.txt" download>
-            <img src="immaginiDownload.png" alt="Scarica un file di prova" title="Scarica un file di prova">
-        </a>
-
         <button onclick="cripta()">Cripta</button>
 
         <table id="tabellaTesto">
@@ -55,9 +51,26 @@
             let chiave = document.getElementById("inputChiave").value;
             chiave = parseInt(chiave);
 
+            
             for (let i = 0; i < testo.length; i++) {
                 let carattere = testo.charAt(i);
-                testoCriptato += String.fromCharCode(carattere.charCodeAt(0) + chiave);
+                if (carattere.match(/[a-zA-Z]/)) {
+                    let codice = carattere.charCodeAt(0);
+
+                    
+                    if (carattere >= 'A' && carattere <= 'Z') {
+                        codice = ((codice - 65 + chiave) % 26) + 65;
+                    }
+
+                    else if (carattere >= 'a' && carattere <= 'z') {
+                        codice = ((codice - 97 + chiave) % 26) + 97;
+                    }
+
+                    testoCriptato += String.fromCharCode(codice);
+                } else {
+                     
+                    testoCriptato += carattere;
+                }
             }
 
             localStorage.setItem("TestoCriptato", testoCriptato);
