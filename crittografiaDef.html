@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crittografia File</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      width: 400px;
+      padding: 30px;
+      background-color: #2c2c2c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .box input[type="file"],
+    .box input[type="text"] {
+      background-color: #1e1e1e;
+      border: 1px solid #555;
+      color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    .box button {
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .box button:hover {
+      background-color: #0056b3;
+    }
+
+    textarea {
+      background-color: #121212;
+      color: #00ff99;
+      border: none;
+      resize: none;
+      padding: 10px;
+      border-radius: 5px;
+      height: 150px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .link-decripta {
+      text-align: center;
+    }
+
+    .link-decripta a {
+      color: #00bfff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .link-decripta a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Crittografia Testo</h2>
+    <input type="file" id="inputFile" accept=".txt">
+    <input type="text" id="inputChiave" placeholder="Chiave numerica">
+    <button onclick="cripta()">Cripta File</button>
+    <textarea id="risultato" readonly placeholder="Testo crittografato..."></textarea>
+    <div class="link-decripta">
+      <a href="Decriptazione.html">Vai alla pagina di decriptazione</a>
+    </div>
+  </div>
+
+  <script>
+    let testo = "";
+
+    document.getElementById('inputFile').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          testo = e.target.result;
+        };
+        reader.readAsText(file);
+      }
+    });
+
+    function cripta() {
+      const chiave = parseInt(document.getElementById("inputChiave").value);
+      if (!testo || isNaN(chiave)) {
+        alert("Seleziona un file valido e inserisci una chiave numerica.");
+        return;
+      }
+      let testoCriptato = "";
+      for (let i = 0; i < testo.length; i++) {
+        testoCriptato += String.fromCharCode(testo.charCodeAt(i) + chiave);
+      }
+      localStorage.setItem("TestoCriptato", testoCriptato);
+      document.getElementById("risultato").value = testoCriptato;
+    }
+  </script>
+</body>
+</html>
