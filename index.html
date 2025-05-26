@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Default</title>
+    <title>Pagina dei Lavori</title>
     <style>
         body {
             background: linear-gradient(to bottom, #87CEEB, #8B4513);
@@ -14,20 +14,46 @@
             padding: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
         h1 {
-            font-size: 2em;
+            margin: 10px 0;
+        }
+
+        .links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
     <h1>Benvenuto, questa è la mia pagina index!</h1>
-     <h1>Qui potrai trovare i miei lavori: </h1>
-    <a href="stella.html">lavoro stella </a>
-    <a href="prova.html">lavoro Tabella Migranti</a>
-    <a href="anagraficaDeRosa.html"> lavoro anagrafica </a>
-    <a href="crittografiaDef.html"> lavoro criptografia</a>
+    <h1>Qui potrai trovare i miei lavori:</h1>
+
+    <div class="links">
+        <a href="stella.html">⭐ Lavoro Stella</a>
+        <a href="prova.html">📊 Lavoro Tabella Migranti</a>
+        <a href="anagraficaDeRosa.html">👥 Lavoro Anagrafica</a>
+        <a href="crittografiaDef.html">🔐 Lavoro Criptografia</a>
+        <a href="quinto.html">📁 Lavoro Extra (Quinto)</a> <!-- aggiunto il quinto lavoro come richiesto -->
+    </div>
 </body>
 </html>
