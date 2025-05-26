@@ -3,57 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina dei Lavori</title>
+    <title>I miei lavori</title>
     <style>
         body {
             background: linear-gradient(to bottom, #87CEEB, #8B4513);
             color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
         }
 
         h1 {
-            margin: 10px 0;
+            margin: 0;
+            font-size: 2.5rem;
         }
 
-        .links {
-            margin-top: 20px;
+        .container {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 30px 20px;
+            gap: 20px;
         }
 
-        a {
+        .card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid white;
+            border-radius: 15px;
+            width: 250px;
+            height: 150px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, background-color 0.3s;
             text-decoration: none;
             color: white;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
         }
 
-        a:hover {
-            background-color: rgba(0, 0, 0, 0.5);
+        .card:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.25);
         }
     </style>
 </head>
 <body>
-    <h1>Benvenuto, questa è la mia pagina index!</h1>
-    <h1>Qui potrai trovare i miei lavori:</h1>
 
-    <div class="links">
-        <a href="stella.html">⭐ Lavoro Stella</a>
-        <a href="prova.html">📊 Lavoro Tabella Migranti</a>
-        <a href="anagraficaDeRosa.html">👥 Lavoro Anagrafica</a>
-        <a href="crittografiaDef.html">🔐 Lavoro Criptografia</a>
+    <header>
+        <h1>Benvenuto!</h1>
+        <p>Qui potrai esplorare i miei 5 lavori:</p>
+    </header>
+
+    <div class="container">
+        <a href="stella.html" class="card">⭐ Lavoro Stella</a>
+        <a href="prova.html" class="card">📊 Tabella Migranti</a>
+        <a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a>
+        <a href="crittografiaDef.html" class="card">🔐 Crittografia</a>
         
     </div>
+
 </body>
 </html>
