@@ -3,70 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I miei lavori</title>
+    <title>Index - Lavori</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #87CEEB, #8B4513);
-            color: white;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
         }
-
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 30px 20px;
-            gap: 20px;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
         }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.15);
-            border: 2px solid white;
-            border-radius: 15px;
-            width: 250px;
-            height: 150px;
+        h1 {
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s, background-color 0.3s;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
+            color: #333;
         }
-
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .card {
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
         .card:hover {
-            transform: scale(1.05);
-            background-color: rgba(255, 255, 255, 0.25);
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Benvenuto!</h1>
-        <p>Qui potrai esplorare i miei 5 lavori:</p>
-    </header>
-
     <div class="container">
-        <a href="stella.html" class="card">⭐ Lavoro Stella</a>
-        <a href="prova.html" class="card">📊 Tabella Migranti</a>
-        <a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a>
-        <a href="crittografiaDef.html" class="card">🔐 Crittografia</a>
-        <a href="eCommerce.html" class="card">📲 e-commerce</a>
-        
+        <h1>Benvenuto alla Pagina dei Lavori</h1>
+
+        <table>
+            <tr>
+                <th>Lavoro</th>
+                <th>Descrizione</th>
+            </tr>
+            <tr>
+                <td><a href="stella.html" class="card">⭐ Lavoro Stella</a></td>
+                <td>Un'applicazione che esplora il concetto di "Stella" in un progetto</td>
+            </tr>
+            <tr>
+                <td><a href="prova.html" class="card">📊 Tabella Migranti</a></td>
+                <td>Un progetto che visualizza dati sui migranti</td>
+            </tr>
+            <tr>
+                <td><a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a></td>
+                <td>Gestione dell'anagrafica dei clienti o utenti</td>
+            </tr>
+            <tr>
+                <td><a href="crittografiaDef.html" class="card">🔐 Crittografia</a></td>
+                <td>Un'applicazione per la gestione e l'implementazione di algoritmi di crittografia</td>
+            </tr>
+            <tr>
+                <td><a href="eCommerce.html" class="card">📲 e-commerce</a></td>
+                <td>Un sistema di e-commerce per la vendita di prodotti online</td>
+            </tr>
+        </table>
     </div>
 
 </body>
