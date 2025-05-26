@@ -1,0 +1,28 @@
+{
+    "prodotti": [
+        {
+            "marca": "Technogym",
+            "tipo": "Tapis Roulant MyRun",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVR8r-JrZVxugeu--kqAHmYjjClTzKMyH8mA&s",
+            "descrizione": "Velocità: 0-20 km/h, Inclinazione: 0-12%, Programmi: 10"
+        },
+        {
+            "marca": "Decathlon",
+            "tipo": "Cyclette Domyos",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzZiXNu0G_B_fXPczVUjwTK8ibC95z69Ds_w&s",
+            "descrizione": "Display: LCD, Resistenza: 8 livelli, Peso max utente: 130 kg"
+        },
+        {
+            "marca": "Nike",
+            "tipo": "Canotta Uomo Dri-FIT",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS12Qqe04lgMGn_a3OfM_czS5hzHHkE8IbRQ&s",
+            "descrizione": "Materiale: 100% poliestere, Taglie disponibili: S, M, L, XL, Colore: Nero"
+        },
+        {
+            "marca": "Adidas",
+            "tipo": "Leggings Donna Training",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7G0M6-aosLDGPGRF_WB-DiGpumtZUvZ-OYA&s",
+            "descrizione": "Materiale: Poliestere e Elastan, Taglie disponibili: XS, S, M, L, Colore: Grigio"
+        }
+    ]
+}

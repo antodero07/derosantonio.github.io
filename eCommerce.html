@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicazione E-commerce</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        section { display: none; padding: 20px; }
+        #pagina-upload, #pagina-benvenuto { display: block; }
+    </style>
+</head>
+<body>
+    <section id="pagina-upload">
+        <h1>Carica il file JSON</h1>
+        <input type="file" id="fileJson" accept="application/json">
+    </section>
+
+    <section id="pagina-benvenuto">
+        <h1>Benvenuto!</h1>
+        <button id="vaiAiProdotti">Vai ai Prodotti</button>
+    </section>
+
+    <section id="pagina-prodotti">
+        <h1>Prodotti Disponibili</h1>
+        <div id="contenitore-prodotti"></div>
+    </section>
+
+    <section id="pagina-vetrina">
+        <div id="vetrina"></div>
+        <button id="tornaAiProdotti">Torna ai Prodotti</button>
+    </section>
+
+    <section id="pagina-carrello">
+        <h1>Carrello</h1>
+        <div id="contenitore-carrello"></div>
+        <button id="generaScontrino">Genera Scontrino</button>
+    </section>
+
+    <section id="pagina-scontrino">
+        <h1>Scontrino</h1>
+        <div id="scontrino"></div>
+    </section>
+
+    <script>
+        let prodotti = [];
+        let carrello = [];
+
+        document.getElementById("fileJson").addEventListener("change", function () {
+            const file = this.files[0];
+            const reader = new FileReader();
+            reader.onload = function () {
+                prodotti = JSON.parse(reader.result).prodotti;
+                document.getElementById("pagina-upload").style.display = "none";
+                document.getElementById("pagina-benvenuto").style.display = "block";
+            };
+            reader.readAsText(file);
+        });
+
+        document.getElementById("vaiAiProdotti").addEventListener("click", function () {
+            const container = document.getElementById("contenitore-prodotti");
+            container.innerHTML = "";
+            for (let i = 0; i < prodotti.length; i++) {
+                const div = document.createElement("div");
+                div.textContent = prodotti[i].marca + " - " + prodotti[i].tipo;
+                const btn = document.createElement("button");
+                btn.textContent = "Dettagli";
+                btn.addEventListener("click", function () {
+                    mostraVetrina(i);
+                });
+                div.appendChild(btn);
+                container.appendChild(div);
+            }
+            document.getElementById("pagina-benvenuto").style.display = "none";
+            document.getElementById("pagina-prodotti").style.display = "block";
+        });
+
+        function mostraVetrina(index) {
+            const prodotto = prodotti[index];
+            const vetrina = document.getElementById("vetrina");
+            vetrina.innerHTML = `<h2>${prodotto.marca} - ${prodotto.tipo}</h2><p>${prodotto.descrizione}</p>`;
+            const btn = document.createElement("button");
+            btn.textContent = "Aggiungi al carrello";
+            btn.addEventListener("click", function () {
+                carrello.push(prodotto);
+                alert("Prodotto aggiunto al carrello!");
+            });
+            vetrina.appendChild(btn);
+            document.getElementById("pagina-prodotti").style.display = "none";
+            document.getElementById("pagina-vetrina").style.display = "block";
+        }
+
+        document.getElementById("tornaAiProdotti").addEventListener("click", function () {
+            document.getElementById("pagina-vetrina").style.display = "none";
+            document.getElementById("pagina-prodotti").style.display = "block";
+        });
+
+        document.getElementById("generaScontrino").addEventListener("click", function () {
+            const scontrino = document.getElementById("scontrino");
+            scontrino.innerHTML = "";
+            for (let i = 0; i < carrello.length; i++) {
+                const div = document.createElement("div");
+                div.textContent = `${i + 1}. ${carrello[i].marca} - ${carrello[i].tipo}`;
+                scontrino.appendChild(div);
+            }
+            document.getElementById("pagina-carrello").style.display = "none";
+            document.getElementById("pagina-scontrino").style.display = "block";
+        });
+    </script>
+</body>
+</html>
