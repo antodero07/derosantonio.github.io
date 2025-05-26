@@ -1,72 +1,43 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I miei lavori</title>
-    <style>
-        body {
-            background: linear-gradient(to bottom, #87CEEB, #8B4513);
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 30px 20px;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.15);
-            border: 2px solid white;
-            border-radius: 15px;
-            width: 250px;
-            height: 150px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s, background-color 0.3s;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Benvenuto!</h1>
-        <p>Qui potrai esplorare i miei 5 lavori:</p>
-    </header>
-
-    <div class="container">
-        <a href="stella.html" class="card">⭐ Lavoro Stella</a>
-        <a href="prova.html" class="card">📊 Tabella Migranti</a>
-        <a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a>
-        <a href="crittografiaDef.html" class="card">🔐 Crittografia</a>
-        <a href="quinto.html" class="card">📁 Lavoro Extra</a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="./img/home.png" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div>
+      <h1>De Rosa Antonio</h1>
+      <span>Sito web ad uso didattico</span>
+      <p>
+        Altervista ➡️
+        <a href="https://edoo29.altervista.org/" id="link-altervista"
+          >Clicca qui</a
+        >
+      </p>
     </div>
 
-</body>
+    <h2>Esercizi</h2>
+    <div id="cards-container">
+      
+
+      <a href="stella.html" class="card">⭐ Lavoro Stella</a>
+
+      <a href="prova.html" class="card">📊 Tabella Migranti</a>
+
+       <a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a>
+
+       <a href="crittografiaDef.html" class="card">🔐 Crittografia</a>
+
+       
+
+     
+    </div>
+
+    <footer>
+      <p>Anno scolastico 2024-2025</p>
+    </footer>
+  </body>
 </html>
