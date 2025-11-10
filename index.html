@@ -1,88 +1,114 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index - Lavori</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-        .card {
-            display: inline-block;
-            padding: 15px;
-            margin: 10px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2em;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        .card:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index - Lavori</title>
+<style>
+  body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  .container {
+    width: 85%;
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.2em;
+    color: #0d47a1;
+    margin-bottom: 10px;
+  }
+
+  p.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 25px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #1565c0;
+    color: white;
+    font-weight: 600;
+  }
+
+  td {
+    background-color: #f9f9f9;
+    font-size: 1.05em;
+  }
+
+  tr:hover td {
+    background-color: #eef3fc;
+    transition: 0.3s;
+  }
+
+  .card {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 5px;
+    background-color: #1e88e5;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    background-color: #0d47a1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #555;
+    font-size: 0.9em;
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Benvenuto alla Pagina dei Lavori</h1>
+  <div class="container">
+    <h1>Benvenuto alla Pagina dei Lavori</h1>
+    <p class="subtitle">Consulta e accedi ai progetti disponibili</p>
 
-        <table>
-            <tr>
-                <th>Lavoro</th>
-                <th>Descrizione</th>
-            </tr>
-            <tr>
-                <td><a href="stella.html" class="card">⭐ Lavoro Stella</a></td>
-                <td>Un'applicazione che esplora il concetto di "Stella" in un progetto</td>
-            </tr>
-            <tr>
-                <td><a href="prova.html" class="card">📊 Tabella Migranti</a></td>
-                <td>Un progetto che visualizza dati sui migranti</td>
-            </tr>
-            <tr>
-                <td><a href="anagraficaDeRosa.html" class="card">👥 Anagrafica</a></td>
-                <td>Gestione dell'anagrafica dei clienti o utenti</td>
-            </tr>
-            <tr>
-                <td><a href="crittografiaDef.html" class="card">🔐 Crittografia</a></td>
-                <td>Un'applicazione per la gestione e l'implementazione di algoritmi di crittografia</td>
-            </tr>
-            <tr>
-                <td><a href="eCommerce.html" class="card">📲 e-commerce</a></td>
-                <td>Un sistema di e-commerce per la vendita di prodotti online</td>
-            </tr>
-        </table>
-    </div>
+    <table>
+      <tr>
+        <th>Lavoro</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td><a href="lavoroJSonDeRosa.html" class="card">⭐ Lavoro JSON</a></td>
+        <td>Un'applicazione che legge un file JSON e ordina gli studenti</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>© 2025 - Pagina lavori di classe</footer>
 
 </body>
 </html>
